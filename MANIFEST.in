@@ -1,7 +1,6 @@
 include README
 include LICENSE
 include MANIFEST.in
-recursive-include docs *
 recursive-include scripts *
 recursive-include tests *
 recursive-include bin *

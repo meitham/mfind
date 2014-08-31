@@ -1,30 +1,29 @@
-==========
-pygnutools
-==========
+=====
+mfind
+=====
 
-pygnutools is an implementation of the GNU tools in pure Python. 
+mfind: like GNU find but understands file metadata tags
 
 Work in Progress
 ================
 
-So far the only implemented tool is ``find`` tool. Not even all find primaries are implemented yet.
+Not all ``find`` tests or actions are implemented, this is work in progress. 
 
 Plugin Architecture
 ===================
 
-Unlike the GNU find tool, this implementation allows plugins to be easily added. 
-The plugin architecture uses setuptools entry points.
+Unlike the GNU find tool, this implementation allows plugins to add new tests or actions, or even override existing ones. The plugin architecture uses setuptools entry points.
 
-See exivfind_ as an example that provides pyfind with EXIF primaries.
+See mfind-exif_ as an example that provides mfind with EXIF primaries.
 
-.. _exivfind: https://github.com/meitham/exivfind
+.. _mfind-exif: https://github.com/meitham/mfind-exif
 
-for example with installing exivfind_ you could do::
+for example with installing mfind-exif_ you could do::
 
-        pyfind ~/Pictures -iname \*.jpg -imake canon -print ', ' -print-tag 'model'
+        mfind ~/Pictures -iname \*.jpg -imake canon -print ', ' -print-tag 'model'
 
 The command above will look through your pictures directory for all files 
-matching *.jpg and are taking by a canon camera, then will print the file name
+matching \*.jpg and are taking by a canon camera, then will print the file name
 followed by a comma and space ', ' and print the model of the camera. Neat!
 
 Options prefixed with i denote case insensitivity.
@@ -51,17 +50,17 @@ Getting Started
 
 Clone::
 
-	git clone https://github.com/meitham/pygnutools
+	git clone https://github.com/meitham/mfind
 
 Install::
 
-	cd pygnutools && python setup.py install
+	cd mfind && python setup.py install
 
 Run Examples::
 
-	pyfind . -name \*.pyc -print
+	mfind . -name \*.pyc -print
 
-	pyfind some_path -iname \*.png -exec rm \{} \;
+	mfind some_path -iname \*.png -exec rm \{} \;
 
 
 License
